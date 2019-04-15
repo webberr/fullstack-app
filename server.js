@@ -18,7 +18,9 @@ const db = require("./config/keys").mongoURI;
 
 // Connect to MongoDB
 mongoose
-  .connect(db)
+  .connect(db, { useNewUrlParser: true })
+  // added object as second option to connect.
+  // it stopped the error message, but might break things
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
